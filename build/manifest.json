@@ -1,0 +1,27 @@
+{
+  "background": {
+    "persistent": true,
+    "scripts": [ "background.js" ]
+  },
+  "browser_action": {
+    "default_icon": "logo192.png",
+    "default_popup": "index.html",
+    "default_title": "Chrome extension demo"
+  },
+  "icons": {
+    "128": "logo512.png",
+    "48": "logo192.png"
+  },
+  "manifest_version": 2,
+  "name": "Chrome extension demo",
+  "permissions": [ "activeTab", "webRequest", "tabs", "\u003Call_urls>", "webRequestBlocking", "browsingData" ],
+  "version": "0.1",
+  "content_scripts": [
+    {
+        "matches": ["*://*/*"],
+        "js": ["content-script.js"],
+        "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": ["inline-script.js"]
+}
